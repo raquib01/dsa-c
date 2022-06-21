@@ -1,0 +1,373 @@
+-------------------------------DSA Notes---------------------------------
+* Data Structure:
+	ways of storing / arranging data in RAM
+
+	Linear DS: Array, Linked List, Stack, Queue
+	Non Linear DS: Trees, Graphs
+
+* Algorithm:
+	well defined steps to solve a particular problem
+
+* Abstraction:
+	hiding details
+	ways to arrange complexity
+
+* Abstraction Data Type:
+	hiding the complex details and showing only functionality to the user.
+
+1. Array as ADT
+	- Accessing element with index number
+
+	pros n cons:
+		accessing elements is quick
+		insertion and deletion takes longer time
+		fixed size, cannot be resized
+
+	method:
+		create, set, get, display, insert, delete, free
+		max, min, avg, sum, search etc
+
+2. Linked List
+	- nodes having data and a pointer pointing to another node
+
+	types:
+		a. linked List
+		b. Circular Linked List
+		c. Doubly Linked List
+	
+	pros n cons:
+		accessing elements takes longer
+		insertion and deletion is quick
+		size is resizeable
+	
+	methods:
+		insertAtStart, insertAtIndex, insertAtEnd
+		deleteAtStart, deleteAtIndex, deleteAtEnd
+		isEmpty, isFull, display
+
+3. Stack
+	- works on LIFO scheme
+	- time complexity: O(1) in both arr and ll implementation
+
+	types:
+		a. arr stack
+		b. linked list stack
+
+	methods:
+		isEmpty, isFull, peek, display
+		push, pop, stackTop, stackBottom, create
+
+4. Queue
+	- works on FIFO sceme
+	- time complexity: O(1) in arr implementation
+
+	types:
+		a. arr Queue
+		b. linked list Queue
+		c. circular queue
+		d. priority queue
+		e. double ended queue
+
+	methods:
+		isEmpty, isFull, peek, display
+		enqueue, dequeue, reset
+
+
+* Searching Algorithm
+
+1. Linear Search
+	time complexity: O(n)
+	array not needed to be sort
+
+2. Binary Search
+	time complexity: O(logn)
+	array first needed to be sort
+
+* Sorting Algorithms
+	Analysis criteria:
+	a. Time complexity
+	b. Space complexity
+	c. Stable
+	d. Adaptive
+	e. Recursive
+
+1. Bubble Sort
+	- repeatedly swapping the adjacent elements if they are not in order
+	- throwing bigger element at last in every passes
+
+	pass: n-1
+	swap: n-1-i
+	+ Time Complexity:
+		worst case: O(n^2)
+		best case: O(n) if it is upgraded to adaptivity
+
+	+ Space Complexity:
+		O(1) cos Inplace Sorting Algo
+
+	+ Adaptivity
+		not adaptive by default, but can be upgraded to adaptive
+		if not a single swap in a pass, then sorted
+
+	+ Stable: true
+	
+	+ Non-recursive
+
+2. Selection Sort
+	- selecting min element in the unsorted array, and swap with element at the start
+	
+	1. Time complexity:
+		worst case: O(n^2)
+		best case: O(n^2)
+	2. Space complexity
+		O(1) cos Inplace sorting algo
+	3. Non Adaptive
+	4. Non Stable
+	5. Non-resursive
+
+3. Insertion Sort
+	- making key and comparing all elements to the left of key, and shifting it
+	making left side full sorted
+
+	1. Time complexity:
+		worst case: O(n^2)
+		best case: O(n)
+	2. Space complexity
+		O(1) cos Inplace sorting algo
+	3. Adaptive
+	4. Stable
+	5. Non-resursive
+
+4. Quick Sort
+	- recursively making pivot and arranging list such that all lesses elements
+	are on left and greater on right
+
+	1. Time complexity:
+		worst case: O(n^2)
+		avg case: O(nlogn)
+		best case: O(nlogn)
+	2. Space complexity
+		O(1) cos Inplace sorting algo
+	3. Non Adaptive:
+	4. Non-Stable
+	5. Resursive
+
+5. Merge Sort
+	- dividing list until they become sorted sub list
+	and then merging it
+
+	1. Time complexity:
+		worst case: O(nlogn)
+		best case: O(nlogn)
+	2. Space complextity: O(n)
+	3. Adaptive:
+	4. Stable
+	5. Resursive
+
+* Trees
+	hierarchial way to store data.
+	n nodes and n-1 edges
+
+	Terminology:
+		- root: upmost node, which have no parent
+		- leaf / External Node: bottom most node, which have no childrens
+		- Internal Node: node which have atleast one child
+		- depth: no of node from root
+		- height: no of node from leaf
+		- degree: no of child
+
+a. Binary Tree
+	tree have atmost 2 children or tree of deg 2
+
+	Types:
+	i. Full / Strict Binary Tree
+			   x
+			 /   \
+			/     \
+		   x       x
+		  / \ 
+		 x   x 
+			/ \
+			x x 
+	
+	ii. Perfect Binary Tree
+		       x
+		     /   \
+		    /     \
+		   x       x
+		  / \     / \
+		 x   x   x   x
+		/ \ / \ / \ / \
+		x x x x x x x x
+	
+	iii. Complete Binary Tree
+		       x
+		     /   \
+		    /     \
+		   x       x
+		  / \     / \
+		 x   x   x   x
+		/ \ /
+		x x x
+	
+	iv. Degenerate
+		all nodes have only 1 child or no children
+
+		left skewed: all childs are towards left side
+		right skewed: all childs are towards right side
+
+* Representation:
+
+1. Array Representation
+		88
+	   /  \
+	  77  66
+	 / \  / \
+	55 44 33 22
+   /          \
+  11           0
+
+{88,77,66,55,44,33,22,11,N,N,N,N,N,N,0}
+
+2. Linked List Representation
+	struct node{
+		int data;
+		node* left;
+		node* right;
+	};
+
+* Traversal
+	1. Preorder
+		root->left->right
+
+	2. Postorder
+		left->right->root
+
+	3. Inorder
+		left->root->right
+
+* Binary Search Tree
+	all nodes to the left < root
+	all nodes to the right > root
+	no duplicate nodes
+
+	> Features:
+	1. Search is quick
+	2. Insertion and Deletion is quick
+	3. Inorder traversal gives sorted list
+
+	Time Complexity: O(logN)
+
+* AVL Tree
+	- It is a BST
+	* Balance Factor: height(left subtree) - height(right subtree) 
+	- Balance Factor of each node must be -1 , 0 or 1
+
+	* Converting non AVL tree to AVL tree
+		a. LL Rotation
+			if node inserted in left of left subtree
+			rotate the unbalance node to *RIGHT*
+
+    ----------------Right Rotate wrt y---------
+			
+				y		|		x
+			  /  \		|	   / \
+			 x   t3		| 	 t1   y
+			/ \			|	     / \
+		   t1 t2		|       t2  t3
+
+		b. RR Rotation
+			if node inserted in right of right subtree
+			rotate the unbalance node to *LEFT*
+
+	--------------Left Rotate wrt x------------
+				x		|		y
+			   / \		|	  /  \
+		 	 t1   y		|	 x   t3
+			     / \	|	/ \
+		       t2  t3	|  t1 t2
+
+		c. LR Rotation
+			if node inserted in right of left subtree
+			rotate child of unbalance node to *LEFT*
+			then unbalance node to *RIGHT*
+
+		d. RL Rotation
+			if node inserted in left of right subtree
+			rotate child of unbalance node to *RIGHT*
+			then unbalance node to *LEFT*
+
+* Graphs
+	- A graph G(V,E) is a group of vertices and edges that connects these vertices.
+	> directed edge: one way connection
+	> undirected edge: two way connection
+	> directed graph: having all directed edges
+	> undirected graph: having all undirected edges
+	> indegree: no of edges coming into the node
+	> outdegree: no of edges going out of the node
+
+* Representation
+
+	eg: |0|-----|1|
+		 |  \	|
+		 |	 \	|
+		|2|   |3|
+
+	1. Adjacency List:
+		arr	 		Linked List
+		--------------------
+		0		1 -> 2 -> 3	
+		1		0 -> 3
+		2		0
+		3		0 -> 1
+
+	2. Adjacency Matrix:
+			| 0 | 1 | 2 | 3 |
+		0	| 0 | 1 | 1 | 1 |
+		1	| 1	| 0 | 0 | 1 |
+		2	| 1 | 0 | 0 | 0 |
+		3	| 1	| 1 | 0 | 0 |
+
+	3. Cost Adjacency List:
+		Every node that stores 2 data, first is connected node and cost of that path
+
+	4. Cost Adjacency Matrix:
+		stores cost of that path instead of 1 and otherwise -1
+	
+	5. Edge set:
+		{(0,3),(0,2),(0,1), (2,0), (3,0), (3,1), (1,0), (1,3)}
+
+	6. Compact list: stores all data in 1D array
+	
+
+
+* BFS:
+	Breath First Search
+	Graph Traversing Algorithm using Queue Data Structure
+
+* DFS:
+	Depth First Search
+	Graph Traversing Algorithm using Stack Data Structure
+
+* Connected Graph
+	There is a path exists to reach any point in the graph from any other point
+
+* Complete Graph
+	Every node is connected to every other node by unique edge
+	> no of edges: v(v-1)/2
+	- explanation:
+		each vertex having v-1 edges going out to every vertex possible, so v(v-1)
+		but this way, we counted every edge twice, therfore v(v-1)/2
+
+* Subgraph:
+	veritces and edges must be subset of parent graph
+
+* Spanning Tree:
+	- must be connected subgraph of parent
+	- having all vertices of parent graph
+	- edges must be v-1
+	- no of possible spanning tree of a complete subgraph: v^(v-2)
+
+* Cost of a spanning tree:
+	cost required to visit every node
+
+* MST(Minimum Spanning Tree): lowest cost spanning tree
